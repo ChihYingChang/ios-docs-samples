@@ -66,11 +66,13 @@ class ViewController : UIViewController, AudioControllerDelegate {
                 strongSelf.textView.text = error.localizedDescription
             } else if let response = response {
                 var finished = false
-                print(response)
+                
                 for result in response.resultsArray! {
+                    
                     if let result = result as? StreamingRecognitionResult {
                         if result.isFinal {
                             finished = true
+                                print(" alternative : \((result.alternativesArray[0] as AnyObject).transcript!)")
                         }
                     }
                 }
