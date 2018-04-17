@@ -22,6 +22,7 @@ let SAMPLE_RATE = 16000
 class ViewController : UIViewController, AudioControllerDelegate {
   @IBOutlet weak var textView: UITextView!
   var audioData: NSMutableData!
+  var speechResult: String?
 
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -44,6 +45,9 @@ class ViewController : UIViewController, AudioControllerDelegate {
   @IBAction func stopAudio(_ sender: NSObject) {
     _ = AudioController.sharedInstance.stop()
     SpeechRecognitionService.sharedInstance.stopStreaming()
+    if (speechResult != nil && !(speechResult?.isEmpty)!) {
+        callMusicMatch()
+    }
   }
 
   func processSampleData(_ data: Data) -> Void {
@@ -72,7 +76,8 @@ class ViewController : UIViewController, AudioControllerDelegate {
                     if let result = result as? StreamingRecognitionResult {
                         if result.isFinal {
                             finished = true
-                                print(" alternative : \((result.alternativesArray[0] as AnyObject).transcript!)")
+                            
+                            strongSelf.speechResult = (result.alternativesArray[0] as AnyObject).transcript
                         }
                     }
                 }
@@ -85,4 +90,78 @@ class ViewController : UIViewController, AudioControllerDelegate {
       self.audioData = NSMutableData()
     }
   }
+    
+    private func callMusicMatch() {
+        
+        print(" speechResult : \(speechResult!)")
+        
+        /* 1. Set the parameters */
+        let methodParameters = [
+            Constants.MusixmatchParameterKeys.Format : Constants.MusixmatchParameterValue.Format,
+            Constants.MusixmatchParameterKeys.Callback : Constants.MusixmatchParameterValue.Callback,
+            Constants.MusixmatchParameterKeys.QLyrics : speechResult!,
+            Constants.MusixmatchParameterKeys.SArtistRating : Constants.MusixmatchParameterValue.SArtistRating,
+//            Constants.MusixmatchParameterKeys.STrackRating : Constants.MusixmatchParameterValue.STrackRating,
+            Constants.MusixmatchParameterKeys.FHasLyrics : Constants.MusixmatchParameterValue.FHasLyrics,
+            Constants.MusixmatchParameterKeys.QuorumFactor : Constants.MusixmatchParameterValue.QuorumFactor,
+            Constants.MusixmatchParameterKeys.PageSize : Constants.MusixmatchParameterValue.PageSize,
+            Constants.MusixmatchParameterKeys.Page : Constants.MusixmatchParameterValue.Page,
+            Constants.MusixmatchParameterKeys.APIKey : Constants.MusixmatchParameterValue.APIKey
+            ] as [String : AnyObject]
+        
+        /* 2/3. Build the URL, Configure the request */
+        let session = URLSession.shared
+        let request = URLRequest(url: MusixMatchURLFromParameters(methodParameters))
+        
+        print("request : \(request)")
+        
+        /* 4. Make the request */
+        let task = session.dataTask(with: request) { (data, response, error) in
+            
+            /* GUARD: Was there an error? */
+            guard (error == nil) else {
+                print("There was an error with your request: \(error)")
+                return
+            }
+            
+            /* GUARD: Did we get a successful 2XX response? */
+            guard let statusCode = (response as? HTTPURLResponse)?.statusCode, statusCode >= 200 && statusCode <= 299 else {
+                print("Your request returned a status code other than 2xx!")
+                return
+            }
+            
+            /* GUARD: Was there any data returned? */
+            guard let data = data else {
+                print("No data was returned by the request!")
+                return
+            }
+            
+            /* 5. Parse the data */
+            let parsedResult: [String:AnyObject]!
+            do {
+                parsedResult = try JSONSerialization.jsonObject(with: data, options: .allowFragments) as! [String:AnyObject]
+            } catch {
+                print("Could not parse the data as JSON: '\(data)'")
+                return
+            }
+            
+            /* 6. Use the data! */
+           
+            print(parsedResult)
+            
+//            self.pushToNextController(parsedResult: parsedResult)
+        }
+        
+        /* 7. Start the request */
+        task.resume()
+    }
+    
+    private func pushToNextController(parsedResult: [String:AnyObject]!) {
+        let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
+         print(parsedResult)
+        let nextViewController = storyBoard.instantiateViewController(withIdentifier: "SearchResaultViewController") as! SearchResaultViewController
+        nextViewController.result = parsedResult
+        self.present(nextViewController, animated:true, completion:nil)
+    }
+    
 }
