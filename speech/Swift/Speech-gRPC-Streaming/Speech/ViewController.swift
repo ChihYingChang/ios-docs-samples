@@ -28,6 +28,11 @@ class ViewController : UIViewController, AudioControllerDelegate {
     super.viewDidLoad()
     AudioController.sharedInstance.delegate = self
   }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        textView.text = "Let's sing!"
+        speechResult = nil
+    }
 
   @IBAction func recordAudio(_ sender: NSObject) {
     let audioSession = AVAudioSession.sharedInstance()
@@ -69,22 +74,22 @@ class ViewController : UIViewController, AudioControllerDelegate {
             if let error = error {
                 strongSelf.textView.text = error.localizedDescription
             } else if let response = response {
-                var finished = false
+//                var finished = false
                 
                 for result in response.resultsArray! {
                     
                     if let result = result as? StreamingRecognitionResult {
                         if result.isFinal {
-                            finished = true
+//                            finished = true
                             
                             strongSelf.speechResult = (result.alternativesArray[0] as AnyObject).transcript
                         }
                     }
                 }
                 strongSelf.textView.text = response.description
-                if finished {
-                    strongSelf.stopAudio(strongSelf)
-                }
+//                if finished {
+//                    strongSelf.stopAudio(strongSelf)
+//                }
             }
       })
       self.audioData = NSMutableData()
@@ -93,14 +98,14 @@ class ViewController : UIViewController, AudioControllerDelegate {
     
     private func callMusicMatch() {
         
-        print(" speechResult : \(speechResult!)")
+//        print(" speechResult : \(speechResult!)")
         
         /* 1. Set the parameters */
         let methodParameters = [
             Constants.MusixmatchParameterKeys.Format : Constants.MusixmatchParameterValue.Format,
             Constants.MusixmatchParameterKeys.Callback : Constants.MusixmatchParameterValue.Callback,
             Constants.MusixmatchParameterKeys.QLyrics : speechResult!,
-            Constants.MusixmatchParameterKeys.SArtistRating : Constants.MusixmatchParameterValue.SArtistRating,
+//            Constants.MusixmatchParameterKeys.SArtistRating : Constants.MusixmatchParameterValue.SArtistRating,
 //            Constants.MusixmatchParameterKeys.STrackRating : Constants.MusixmatchParameterValue.STrackRating,
             Constants.MusixmatchParameterKeys.FHasLyrics : Constants.MusixmatchParameterValue.FHasLyrics,
             Constants.MusixmatchParameterKeys.QuorumFactor : Constants.MusixmatchParameterValue.QuorumFactor,
@@ -113,14 +118,14 @@ class ViewController : UIViewController, AudioControllerDelegate {
         let session = URLSession.shared
         let request = URLRequest(url: MusixMatchURLFromParameters(methodParameters))
         
-        print("request : \(request)")
+//        print("request : \(request)")
         
         /* 4. Make the request */
         let task = session.dataTask(with: request) { (data, response, error) in
             
             /* GUARD: Was there an error? */
             guard (error == nil) else {
-                print("There was an error with your request: \(error)")
+                print("There was an error with your request: \(String(describing: error))")
                 return
             }
             
@@ -145,23 +150,45 @@ class ViewController : UIViewController, AudioControllerDelegate {
                 return
             }
             
-            /* 6. Use the data! */
-           
-            print(parsedResult)
+            guard let message = parsedResult["message"] as? [String : AnyObject] else {
+                print("There is no message!")
+                return
+            }
             
-//            self.pushToNextController(parsedResult: parsedResult)
+            guard let body = message["body"] as? [String : AnyObject] else {
+                print("There is no body!")
+                return
+            }
+            
+            guard let trackList = body["track_list"] as? [[String : AnyObject]] else {
+                print("There is no track_list!")
+                return
+            }
+            
+            
+            /* 6. Use the data! */
+            
+            // update UI
+            performUIUpdatesOnMainThread {
+                
+                let tracks = Track.tracksFromResult(trackList)
+                self.pushToNextController(tracks: tracks)
+            }
+            
         }
         
         /* 7. Start the request */
         task.resume()
     }
     
-    private func pushToNextController(parsedResult: [String:AnyObject]!) {
+    private func pushToNextController(tracks: [Track]!) {
         let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
-         print(parsedResult)
+        
         let nextViewController = storyBoard.instantiateViewController(withIdentifier: "SearchResaultViewController") as! SearchResaultViewController
-        nextViewController.result = parsedResult
+        nextViewController.speechResult = speechResult!
+        nextViewController.tracks = tracks
         self.present(nextViewController, animated:true, completion:nil)
+        
     }
     
 }

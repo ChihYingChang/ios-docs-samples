@@ -22,33 +22,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aJY-83-MIx">
-                                <rect key="frame" x="200" y="70" width="200" height="60"/>
-                                <color key="backgroundColor" red="0.75" green="0.75" blue="0.75" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="60" id="Ob5-s4-nYg"/>
-                                    <constraint firstAttribute="height" constant="30" id="QTK-6F-b35"/>
-                                    <constraint firstAttribute="width" constant="200" id="aXK-qO-hb0"/>
-                                </constraints>
-                                <state key="normal" title="Start Streaming"/>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="QTK-6F-b35"/>
-                                    </mask>
-                                </variation>
-                                <connections>
-                                    <action selector="recordAudio:" destination="BYZ-38-t0r" eventType="touchUpInside" id="3jT-bC-3nM"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wgH-jh-Nuq">
-                                <rect key="frame" x="87.5" y="224" width="200" height="60"/>
-                                <color key="backgroundColor" red="0.75" green="0.75" blue="0.75" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wgH-jh-Nuq">
+                                <rect key="frame" x="158" y="314" width="60" height="60"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="6lu-81-t2K"/>
-                                    <constraint firstAttribute="width" constant="200" id="8b8-bw-kQK"/>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="60" id="kpU-Gc-YS7"/>
+                                    <constraint firstAttribute="width" constant="60" id="8b8-bw-kQK"/>
+                                    <constraint firstAttribute="height" constant="60" id="kpU-Gc-YS7"/>
                                 </constraints>
-                                <state key="normal" title="Stop Streaming"/>
+                                <state key="normal" image="StopMark"/>
                                 <variation key="default">
                                     <mask key="constraints">
                                         <exclude reference="6lu-81-t2K"/>
@@ -59,11 +40,28 @@
                                 </connections>
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Let's sing a few lyrics!" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="vtY-SX-V3c">
-                                <rect key="frame" x="20" y="334" width="335" height="263"/>
+                                <rect key="frame" x="20" y="424" width="335" height="173"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aJY-83-MIx">
+                                <rect key="frame" x="127.5" y="164" width="120" height="120"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="120" id="Ob5-s4-nYg"/>
+                                    <constraint firstAttribute="height" constant="30" id="QTK-6F-b35"/>
+                                    <constraint firstAttribute="width" constant="120" id="aXK-qO-hb0"/>
+                                </constraints>
+                                <state key="normal" image="recodeMark"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="QTK-6F-b35"/>
+                                    </mask>
+                                </variation>
+                                <connections>
+                                    <action selector="recordAudio:" destination="BYZ-38-t0r" eventType="touchUpInside" id="3jT-bC-3nM"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -71,11 +69,11 @@
                             <constraint firstAttribute="trailing" secondItem="vtY-SX-V3c" secondAttribute="trailing" constant="20" id="GWa-tB-ifG"/>
                             <constraint firstItem="vtY-SX-V3c" firstAttribute="top" secondItem="wgH-jh-Nuq" secondAttribute="bottom" constant="50" id="I6f-br-gwb"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="vtY-SX-V3c" secondAttribute="bottom" constant="70" id="O6M-Q5-5Gy"/>
+                            <constraint firstItem="aJY-83-MIx" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="SCZ-FK-elu"/>
                             <constraint firstItem="wgH-jh-Nuq" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="bjq-My-Edw"/>
-                            <constraint firstItem="aJY-83-MIx" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="50" id="d2d-EP-JYj"/>
                             <constraint firstItem="wgH-jh-Nuq" firstAttribute="centerX" secondItem="aJY-83-MIx" secondAttribute="centerX" id="hZX-d6-ANs"/>
-                            <constraint firstItem="wgH-jh-Nuq" firstAttribute="top" secondItem="aJY-83-MIx" secondAttribute="bottom" constant="50" id="kIe-ML-fFZ"/>
-                            <constraint firstItem="aJY-83-MIx" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="ntQ-pz-44R"/>
+                            <constraint firstItem="wgH-jh-Nuq" firstAttribute="top" secondItem="aJY-83-MIx" secondAttribute="bottom" constant="30" id="kIe-ML-fFZ"/>
+                            <constraint firstItem="aJY-83-MIx" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="100" id="qyo-8d-aPV"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
@@ -105,23 +103,57 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Search Result" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Lyc-A0-XHp">
-                                <rect key="frame" x="16" y="113" width="343" height="424"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CRF-ti-8Z4">
+                                <rect key="frame" x="15" y="30" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="ehS-64-q87"/>
+                                    <constraint firstAttribute="height" constant="50" id="wqE-LY-c8Z"/>
+                                </constraints>
+                                <state key="normal" image="backMark"/>
+                                <connections>
+                                    <action selector="backAction:" destination="LVw-qS-waZ" eventType="touchUpInside" id="sFq-Ry-UT6"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Hc-Bj-a0s">
+                                <rect key="frame" x="310" y="30" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="EVN-QB-TeX"/>
+                                    <constraint firstAttribute="width" constant="50" id="pa3-fM-smK"/>
+                                </constraints>
+                                <state key="normal" image="shareMark"/>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hIh-Mn-dOZ">
+                                <rect key="frame" x="16" y="80" width="343" height="29"/>
+                                <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="24"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceHorizontal="YES" pagingEnabled="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1Xy-8H-WGq">
+                                <rect key="frame" x="0.0" y="160" width="375" height="507"/>
+                                <connections>
+                                    <outlet property="delegate" destination="LVw-qS-waZ" id="mqs-Zw-XMy"/>
+                                </connections>
+                            </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="Lyc-A0-XHp" firstAttribute="trailing" secondItem="ed3-7J-OKV" secondAttribute="trailingMargin" id="4Oy-Xm-JXW"/>
-                            <constraint firstItem="Lyc-A0-XHp" firstAttribute="top" secondItem="zaS-OV-9po" secondAttribute="bottom" constant="93" id="Skf-AU-kc6"/>
-                            <constraint firstItem="qqz-Q6-Xbv" firstAttribute="top" secondItem="Lyc-A0-XHp" secondAttribute="bottom" constant="130" id="ZUR-qF-9cv"/>
-                            <constraint firstItem="Lyc-A0-XHp" firstAttribute="leading" secondItem="ed3-7J-OKV" secondAttribute="leadingMargin" id="inH-ht-WUL"/>
+                            <constraint firstAttribute="trailing" secondItem="6Hc-Bj-a0s" secondAttribute="trailing" constant="15" id="2xg-3e-lFk"/>
+                            <constraint firstAttribute="trailing" secondItem="1Xy-8H-WGq" secondAttribute="trailing" id="3Nu-pe-buS"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="hIh-Mn-dOZ" secondAttribute="trailing" id="FbZ-gY-TBF"/>
+                            <constraint firstItem="hIh-Mn-dOZ" firstAttribute="leading" secondItem="ed3-7J-OKV" secondAttribute="leadingMargin" id="Fzi-Ti-hOW"/>
+                            <constraint firstItem="CRF-ti-8Z4" firstAttribute="top" secondItem="zaS-OV-9po" secondAttribute="bottom" constant="10" id="PQl-Y1-gkh"/>
+                            <constraint firstItem="1Xy-8H-WGq" firstAttribute="leading" secondItem="ed3-7J-OKV" secondAttribute="leading" id="TXs-Be-yMg"/>
+                            <constraint firstItem="CRF-ti-8Z4" firstAttribute="leading" secondItem="ed3-7J-OKV" secondAttribute="leading" constant="15" id="ZV3-4g-3cv"/>
+                            <constraint firstItem="qqz-Q6-Xbv" firstAttribute="top" secondItem="1Xy-8H-WGq" secondAttribute="bottom" id="h4b-2K-Cy2"/>
+                            <constraint firstItem="hIh-Mn-dOZ" firstAttribute="top" secondItem="zaS-OV-9po" secondAttribute="bottom" constant="60" id="wIE-hU-hBH"/>
+                            <constraint firstItem="6Hc-Bj-a0s" firstAttribute="top" secondItem="zaS-OV-9po" secondAttribute="bottom" constant="10" id="wlS-UU-kIv"/>
+                            <constraint firstItem="1Xy-8H-WGq" firstAttribute="top" secondItem="ed3-7J-OKV" secondAttribute="top" constant="160" id="xWm-7M-vzu"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="resultTextField" destination="Lyc-A0-XHp" id="QL6-Fy-y4Q"/>
+                        <outlet property="speechResultLabel" destination="hIh-Mn-dOZ" id="8Nt-Ij-Tcr"/>
+                        <outlet property="trackScrollView" destination="1Xy-8H-WGq" id="zMT-ni-FHs"/>
+                        <outlet property="trackScrollViewTopConstraint" destination="xWm-7M-vzu" id="kQ7-2u-GSa"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YCw-Cn-89v" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -147,4 +179,10 @@
             <point key="canvasLocation" x="-161" y="275"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="StopMark" width="155" height="155"/>
+        <image name="backMark" width="256" height="256"/>
+        <image name="recodeMark" width="155" height="155"/>
+        <image name="shareMark" width="100" height="100"/>
+    </resources>
 </document>

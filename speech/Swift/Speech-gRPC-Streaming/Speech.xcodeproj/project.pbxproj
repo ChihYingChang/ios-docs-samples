@@ -8,6 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		2C450CC6320CA9890051ABAF /* Pods_Speech.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C0B7F558BD8BC89862C8C277 /* Pods_Speech.framework */; };
+		431C84E3208AC71A00D0D472 /* String+Index.swift in Sources */ = {isa = PBXBuildFile; fileRef = 431C84E2208AC71A00D0D472 /* String+Index.swift */; };
+		4377307B2089A07B00E18035 /* GCDPerform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4377307A2089A07B00E18035 /* GCDPerform.swift */; };
+		4377307E208A40F200E18035 /* TrackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4377307D208A40F200E18035 /* TrackView.swift */; };
+		43773081208A412800E18035 /* TrackView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 43773080208A412800E18035 /* TrackView.xib */; };
+		43773086208A594700E18035 /* Track.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43773085208A594700E18035 /* Track.swift */; };
+		43773088208A9FF900E18035 /* Lyric.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43773087208A9FF900E18035 /* Lyric.swift */; };
 		437D0D9B208577FC00AC7746 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 437D0D9A208577FC00AC7746 /* Constants.swift */; };
 		437D0D9D20858A5400AC7746 /* MusixMatchURLFromParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 437D0D9C20858A5400AC7746 /* MusixMatchURLFromParameters.swift */; };
 		437D0D9F208592EC00AC7746 /* SearchResaultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 437D0D9E208592EC00AC7746 /* SearchResaultViewController.swift */; };
@@ -21,6 +27,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		431C84E2208AC71A00D0D472 /* String+Index.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Index.swift"; sourceTree = "<group>"; };
+		4377307A2089A07B00E18035 /* GCDPerform.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GCDPerform.swift; sourceTree = "<group>"; };
+		4377307D208A40F200E18035 /* TrackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackView.swift; sourceTree = "<group>"; };
+		43773080208A412800E18035 /* TrackView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TrackView.xib; sourceTree = "<group>"; };
+		43773085208A594700E18035 /* Track.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Track.swift; sourceTree = "<group>"; };
+		43773087208A9FF900E18035 /* Lyric.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lyric.swift; sourceTree = "<group>"; };
 		437D0D9A208577FC00AC7746 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		437D0D9C20858A5400AC7746 /* MusixMatchURLFromParameters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusixMatchURLFromParameters.swift; sourceTree = "<group>"; };
 		437D0D9E208592EC00AC7746 /* SearchResaultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResaultViewController.swift; sourceTree = "<group>"; };
@@ -63,6 +75,34 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		4377307C2089BDDF00E18035 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				437D0D9C20858A5400AC7746 /* MusixMatchURLFromParameters.swift */,
+				4377307A2089A07B00E18035 /* GCDPerform.swift */,
+				437D0D9A208577FC00AC7746 /* Constants.swift */,
+			);
+			name = Helper;
+			sourceTree = "<group>";
+		};
+		4377307F208A410F00E18035 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				4377307D208A40F200E18035 /* TrackView.swift */,
+				43773080208A412800E18035 /* TrackView.xib */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		43773084208A593100E18035 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				43773085208A594700E18035 /* Track.swift */,
+				43773087208A9FF900E18035 /* Lyric.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
 		437D0DA0208593D900AC7746 /* View Controller */ = {
 			isa = PBXGroup;
 			children = (
@@ -93,6 +133,9 @@
 		D34C17CB1C948F5700D69BCA /* Speech */ = {
 			isa = PBXGroup;
 			children = (
+				43773084208A593100E18035 /* Models */,
+				4377307F208A410F00E18035 /* Views */,
+				4377307C2089BDDF00E18035 /* Helper */,
 				437D0DA0208593D900AC7746 /* View Controller */,
 				D3E34EA01D77541D00EF755D /* AppDelegate.swift */,
 				D34C17D81C948F5800D69BCA /* Assets.xcassets */,
@@ -103,8 +146,7 @@
 				D3E34E9F1D77541C00EF755D /* Speech-Bridging-Header.h */,
 				D31E0EB71D778A56006A50AB /* SpeechRecognitionService.swift */,
 				D34C17CC1C948F5700D69BCA /* Supporting Files */,
-				437D0D9A208577FC00AC7746 /* Constants.swift */,
-				437D0D9C20858A5400AC7746 /* MusixMatchURLFromParameters.swift */,
+				431C84E2208AC71A00D0D472 /* String+Index.swift */,
 			);
 			path = Speech;
 			sourceTree = "<group>";
@@ -190,6 +232,7 @@
 			files = (
 				D392D9861C94937D002F5132 /* Main.storyboard in Resources */,
 				D34C17DC1C948F5800D69BCA /* LaunchScreen.storyboard in Resources */,
+				43773081208A412800E18035 /* TrackView.xib in Resources */,
 				D34C17D91C948F5800D69BCA /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -270,12 +313,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				437D0D9B208577FC00AC7746 /* Constants.swift in Sources */,
+				43773086208A594700E18035 /* Track.swift in Sources */,
 				D31E0EBA1D77AA2F006A50AB /* AudioController.swift in Sources */,
 				437D0D9D20858A5400AC7746 /* MusixMatchURLFromParameters.swift in Sources */,
 				D31E0EB81D778A56006A50AB /* SpeechRecognitionService.swift in Sources */,
+				4377307E208A40F200E18035 /* TrackView.swift in Sources */,
+				43773088208A9FF900E18035 /* Lyric.swift in Sources */,
+				4377307B2089A07B00E18035 /* GCDPerform.swift in Sources */,
 				D3E34EA51D7757CC00EF755D /* ViewController.swift in Sources */,
 				D3E34EA11D77541D00EF755D /* AppDelegate.swift in Sources */,
 				437D0D9F208592EC00AC7746 /* SearchResaultViewController.swift in Sources */,
+				431C84E3208AC71A00D0D472 /* String+Index.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

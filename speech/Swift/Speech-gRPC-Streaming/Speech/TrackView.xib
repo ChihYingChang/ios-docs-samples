@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TrackView" customModule="Speech" customModuleProvider="target">
+            <connections>
+                <outlet property="album" destination="y2Z-rI-FXP" id="Srq-eF-SD0"/>
+                <outlet property="artist" destination="TTS-cB-6Fy" id="pvF-1q-5YW"/>
+                <outlet property="contentView" destination="iN0-l3-epB" id="gEB-X3-RiE"/>
+                <outlet property="lyrics" destination="7X5-kG-vkb" id="BrC-n4-feq"/>
+                <outlet property="trackName" destination="RqB-9c-zdr" id="IYg-Vq-ZOa"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Artist" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TTS-cB-6Fy">
+                    <rect key="frame" x="20" y="133.5" width="335" height="31.5"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="26"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="7X5-kG-vkb">
+                    <rect key="frame" x="5" y="209" width="375" height="453"/>
+                    <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                    <color key="textColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                </textView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TrackName" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RqB-9c-zdr">
+                    <rect key="frame" x="20" y="80" width="335" height="33.5"/>
+                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="28"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="album" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y2Z-rI-FXP">
+                    <rect key="frame" x="10" y="175" width="355" height="24"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="y2Z-rI-FXP" firstAttribute="top" secondItem="TTS-cB-6Fy" secondAttribute="bottom" constant="10" id="4Gf-IV-H1o"/>
+                <constraint firstItem="TTS-cB-6Fy" firstAttribute="top" secondItem="RqB-9c-zdr" secondAttribute="bottom" constant="20" id="Dkw-FS-9yz"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="y2Z-rI-FXP" secondAttribute="trailing" constant="10" id="EPU-i3-TRT"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="7X5-kG-vkb" secondAttribute="bottom" constant="5" id="IH4-3a-PYL"/>
+                <constraint firstItem="RqB-9c-zdr" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="OXG-PN-O0F"/>
+                <constraint firstItem="7X5-kG-vkb" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" constant="5" id="Th1-6M-q83"/>
+                <constraint firstItem="7X5-kG-vkb" firstAttribute="top" secondItem="y2Z-rI-FXP" secondAttribute="bottom" constant="10" id="aEj-iJ-UuJ"/>
+                <constraint firstItem="RqB-9c-zdr" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="60" id="arq-LI-D9f"/>
+                <constraint firstItem="y2Z-rI-FXP" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="10" id="dYD-l4-bl9"/>
+                <constraint firstItem="7X5-kG-vkb" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="5" id="gkP-fn-Pyq"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="TTS-cB-6Fy" secondAttribute="trailing" constant="20" id="xvs-AP-WpR"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="RqB-9c-zdr" secondAttribute="trailing" constant="20" id="yz9-5E-v8p"/>
+                <constraint firstItem="TTS-cB-6Fy" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="zp2-yv-XuR"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <point key="canvasLocation" x="90.5" y="60.5"/>
+        </view>
+    </objects>
+</document>

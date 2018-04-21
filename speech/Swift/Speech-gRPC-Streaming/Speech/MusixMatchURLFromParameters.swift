@@ -23,3 +23,19 @@ func MusixMatchURLFromParameters(_ parameters: [String:AnyObject]) -> URL {
     
     return components.url!
 }
+
+func MusixMatchLyricsURLFromParameters(_ parameters: [String:AnyObject]) -> URL {
+    
+    var components = URLComponents()
+    components.scheme = Constants.Musixmatch.ApiScheme
+    components.host = Constants.Musixmatch.ApiHost
+    components.path = Constants.Musixmatch.ApiLyricPath
+    components.queryItems = [URLQueryItem]()
+    
+    for (key, value) in parameters {
+        let queryItem = URLQueryItem(name: key, value: "\(value)")
+        components.queryItems!.append(queryItem)
+    }
+    
+    return components.url!
+}

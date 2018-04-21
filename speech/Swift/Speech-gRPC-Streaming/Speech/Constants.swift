@@ -14,6 +14,7 @@ struct Constants {
         static let ApiScheme = "https"
         static let ApiHost = "api.musixmatch.com"
         static let ApiPath = "/ws/1.1/track.search"
+        static let ApiLyricPath = "/ws/1.1/track.lyrics.get"
     }
     
     struct MusixmatchParameterKeys {
@@ -35,6 +36,8 @@ struct Constants {
         static let Page = "page"
         static let PageSize = "page_size"
         static let APIKey = "apikey"
+        static let TrackID = "track_id"
+        
     }
     
     // Fixed Value
@@ -53,9 +56,9 @@ struct Constants {
         static let FisrtReleaseDateMax = ""
         static let SArtistRating = "desc"
         static let STrackRating = "desc"
-        static let QuorumFactor = 0.9
+        static let QuorumFactor = 0.5
         static let Page = 1
-        static let PageSize = 3
+        static let PageSize = 5
         static let APIKey = "2d31655277c161c72f42006282202cb3"
     }
     
@@ -102,6 +105,13 @@ struct Constants {
         static let MusicGenre = "music_genre"
         static let SecondaryGenres = "secondary_genres"
     
+    }
+    
+    struct MusixmatchLyricsResponseKeys {
+        static let lyricsID = "lyrics_id"
+        static let lyricsBody =  "lyrics_body"
+        static let scriptTrackingUrl = "script_tracking_url"
+        static let lyricsLanguageDescription = "lyrics_language_description"
     }
     
     
