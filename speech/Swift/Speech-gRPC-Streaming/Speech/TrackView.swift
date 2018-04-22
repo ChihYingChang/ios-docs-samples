@@ -9,7 +9,9 @@
 import UIKit
 
 class TrackView: UIView {
-
+    
+    @IBOutlet weak var coverImage: UIImageView!
+    
     @IBOutlet var contentView: UIView!
     
     @IBOutlet weak var trackName: UILabel!
@@ -21,6 +23,8 @@ class TrackView: UIView {
     @IBOutlet weak var album: UILabel!
     
     var lyricID: Int!
+    
+    var spotifyTrackID: String!
     
     override init(frame: CGRect) {
         super.init(frame: frame)

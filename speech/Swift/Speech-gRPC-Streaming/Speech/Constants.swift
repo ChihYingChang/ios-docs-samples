@@ -58,7 +58,7 @@ struct Constants {
         static let STrackRating = "desc"
         static let QuorumFactor = 0.5
         static let Page = 1
-        static let PageSize = 5
+        static let PageSize = 10
         static let APIKey = "2d31655277c161c72f42006282202cb3"
     }
     
@@ -113,6 +113,63 @@ struct Constants {
         static let scriptTrackingUrl = "script_tracking_url"
         static let lyricsLanguageDescription = "lyrics_language_description"
     }
+    
+    
+    struct Spotify {
+        static let ApiScheme = "https"
+        static let ApiHost = "api.spotify.com"
+        static let ApiPath = "/v1/search"
+    }
+    
+    struct SpotifyHeaderKeys {
+        static let Accept = "Accept"
+        static let ContentType = "Content-Type"
+        static let Authorization = "Authorization"
+    }
+    
+    struct SpotifyHeaderValues {
+        static let Accept = "application/json"
+        static let ContentType = "application/json"
+        static let Authorization = "Bearer BQAGkpYUxo3bSkA6TLFfkHI8M8kprfTJcy5SIAVXDO366d9NvPcJIlZcvhKR8ym_fNss-4GUJozNgUJ6SVJV_aMRgg6Zen1FE_m3zk6s6KaxjuSqNcrvn-Wn0wFmWnu34S-IIRuY4SH6Pi94EtKnps5eXcfSUNU"
+    }
+    
+    struct SpotifySearchParameterKeys {
+        static let q = "q"
+        static let type = "type"
+        static let market = "market"
+        static let limit = "limit"
+        static let offset = "offset"
+    }
+    
+    struct SpotifySearchParameterValues {
+        static let track = "track"
+        static let USMarket = "US"
+        static let limit = 1
+    }
+    
+    struct SpotifyTrackResponseKeys {
+        static let album = "album"
+        static let artists = "artists"
+        static let availableMarkets = "available_markets"
+        static let discNumber = "disc_number"
+        static let durationMs = "duration_ms"
+        static let explicit = "explicit"
+        static let externalIDs = "external_ids"
+        static let externalURLs = "external_urls"
+        static let href = "href"
+        static let ID = "id"
+        static let isPlayable = "is_playable"
+        static let linkedFrom = "linked_from"
+        static let name = "name"
+        static let popularity = "popularity"
+        static let previewUrl = "preview_url"
+        static let trackNumber = "track_number"
+        static let type = "type"
+        static let uri = "uri"
+        static let images = "images"
+    }
+    
+    
     
     
 }

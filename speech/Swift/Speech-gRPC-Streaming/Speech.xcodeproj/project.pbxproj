@@ -9,6 +9,11 @@
 /* Begin PBXBuildFile section */
 		2C450CC6320CA9890051ABAF /* Pods_Speech.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C0B7F558BD8BC89862C8C277 /* Pods_Speech.framework */; };
 		431C84E3208AC71A00D0D472 /* String+Index.swift in Sources */ = {isa = PBXBuildFile; fileRef = 431C84E2208AC71A00D0D472 /* String+Index.swift */; };
+		431C84E5208BBD3900D0D472 /* SpotifyAppRemote.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 431C84E4208BBD3900D0D472 /* SpotifyAppRemote.framework */; };
+		431C84E8208BD1B100D0D472 /* SpotifyAudioPlayback.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 431C84E6208BD1B000D0D472 /* SpotifyAudioPlayback.framework */; };
+		431C84E9208BD1B100D0D472 /* SpotifyAuthentication.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 431C84E7208BD1B100D0D472 /* SpotifyAuthentication.framework */; };
+		431C84EB208BD1ED00D0D472 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 431C84EA208BD1ED00D0D472 /* AVFoundation.framework */; };
+		431C84ED208BD20500D0D472 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 431C84EC208BD20500D0D472 /* SystemConfiguration.framework */; };
 		4377307B2089A07B00E18035 /* GCDPerform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4377307A2089A07B00E18035 /* GCDPerform.swift */; };
 		4377307E208A40F200E18035 /* TrackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4377307D208A40F200E18035 /* TrackView.swift */; };
 		43773081208A412800E18035 /* TrackView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 43773080208A412800E18035 /* TrackView.xib */; };
@@ -17,6 +22,9 @@
 		437D0D9B208577FC00AC7746 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 437D0D9A208577FC00AC7746 /* Constants.swift */; };
 		437D0D9D20858A5400AC7746 /* MusixMatchURLFromParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 437D0D9C20858A5400AC7746 /* MusixMatchURLFromParameters.swift */; };
 		437D0D9F208592EC00AC7746 /* SearchResaultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 437D0D9E208592EC00AC7746 /* SearchResaultViewController.swift */; };
+		43C7D1C4208CC3FC00A0A44C /* SpotifyURLCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43C7D1C3208CC3FC00A0A44C /* SpotifyURLCreator.swift */; };
+		43C7D1C6208CDB9800A0A44C /* SpotifyTrack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43C7D1C5208CDB9800A0A44C /* SpotifyTrack.swift */; };
+		43C7D1C8208CFE3200A0A44C /* UIImageView+LoadRemote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43C7D1C7208CFE3200A0A44C /* UIImageView+LoadRemote.swift */; };
 		D31E0EB81D778A56006A50AB /* SpeechRecognitionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D31E0EB71D778A56006A50AB /* SpeechRecognitionService.swift */; };
 		D31E0EBA1D77AA2F006A50AB /* AudioController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D31E0EB91D77AA2F006A50AB /* AudioController.swift */; };
 		D34C17D91C948F5800D69BCA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D34C17D81C948F5800D69BCA /* Assets.xcassets */; };
@@ -28,6 +36,11 @@
 
 /* Begin PBXFileReference section */
 		431C84E2208AC71A00D0D472 /* String+Index.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Index.swift"; sourceTree = "<group>"; };
+		431C84E4208BBD3900D0D472 /* SpotifyAppRemote.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SpotifyAppRemote.framework; sourceTree = "<group>"; };
+		431C84E6208BD1B000D0D472 /* SpotifyAudioPlayback.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SpotifyAudioPlayback.framework; sourceTree = "<group>"; };
+		431C84E7208BD1B100D0D472 /* SpotifyAuthentication.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SpotifyAuthentication.framework; sourceTree = "<group>"; };
+		431C84EA208BD1ED00D0D472 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		431C84EC208BD20500D0D472 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		4377307A2089A07B00E18035 /* GCDPerform.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GCDPerform.swift; sourceTree = "<group>"; };
 		4377307D208A40F200E18035 /* TrackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackView.swift; sourceTree = "<group>"; };
 		43773080208A412800E18035 /* TrackView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TrackView.xib; sourceTree = "<group>"; };
@@ -36,6 +49,9 @@
 		437D0D9A208577FC00AC7746 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		437D0D9C20858A5400AC7746 /* MusixMatchURLFromParameters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusixMatchURLFromParameters.swift; sourceTree = "<group>"; };
 		437D0D9E208592EC00AC7746 /* SearchResaultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResaultViewController.swift; sourceTree = "<group>"; };
+		43C7D1C3208CC3FC00A0A44C /* SpotifyURLCreator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotifyURLCreator.swift; sourceTree = "<group>"; };
+		43C7D1C5208CDB9800A0A44C /* SpotifyTrack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotifyTrack.swift; sourceTree = "<group>"; };
+		43C7D1C7208CFE3200A0A44C /* UIImageView+LoadRemote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+LoadRemote.swift"; sourceTree = "<group>"; };
 		54C3D1E96C8C43AB14662311 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		5E83ACE29B0D0DF0085BA8F2 /* Pods-Speech.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Speech.release.xcconfig"; path = "Pods/Target Support Files/Pods-Speech/Pods-Speech.release.xcconfig"; sourceTree = "<group>"; };
 		6C682F8DD9C94E41979FE816 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
@@ -59,6 +75,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				431C84ED208BD20500D0D472 /* SystemConfiguration.framework in Frameworks */,
+				431C84EB208BD1ED00D0D472 /* AVFoundation.framework in Frameworks */,
+				431C84E8208BD1B100D0D472 /* SpotifyAudioPlayback.framework in Frameworks */,
+				431C84E9208BD1B100D0D472 /* SpotifyAuthentication.framework in Frameworks */,
+				431C84E5208BBD3900D0D472 /* SpotifyAppRemote.framework in Frameworks */,
 				2C450CC6320CA9890051ABAF /* Pods_Speech.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -69,6 +90,11 @@
 		32C6BA1B2FA20A9904F13B95 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				431C84EC208BD20500D0D472 /* SystemConfiguration.framework */,
+				431C84EA208BD1ED00D0D472 /* AVFoundation.framework */,
+				431C84E6208BD1B000D0D472 /* SpotifyAudioPlayback.framework */,
+				431C84E7208BD1B100D0D472 /* SpotifyAuthentication.framework */,
+				431C84E4208BBD3900D0D472 /* SpotifyAppRemote.framework */,
 				54C3D1E96C8C43AB14662311 /* libPods.a */,
 				C0B7F558BD8BC89862C8C277 /* Pods_Speech.framework */,
 			);
@@ -81,6 +107,8 @@
 				437D0D9C20858A5400AC7746 /* MusixMatchURLFromParameters.swift */,
 				4377307A2089A07B00E18035 /* GCDPerform.swift */,
 				437D0D9A208577FC00AC7746 /* Constants.swift */,
+				43C7D1C3208CC3FC00A0A44C /* SpotifyURLCreator.swift */,
+				43C7D1C7208CFE3200A0A44C /* UIImageView+LoadRemote.swift */,
 			);
 			name = Helper;
 			sourceTree = "<group>";
@@ -99,6 +127,7 @@
 			children = (
 				43773085208A594700E18035 /* Track.swift */,
 				43773087208A9FF900E18035 /* Lyric.swift */,
+				43C7D1C5208CDB9800A0A44C /* SpotifyTrack.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -317,11 +346,14 @@
 				43773086208A594700E18035 /* Track.swift in Sources */,
 				D31E0EBA1D77AA2F006A50AB /* AudioController.swift in Sources */,
 				437D0D9D20858A5400AC7746 /* MusixMatchURLFromParameters.swift in Sources */,
+				43C7D1C4208CC3FC00A0A44C /* SpotifyURLCreator.swift in Sources */,
 				D31E0EB81D778A56006A50AB /* SpeechRecognitionService.swift in Sources */,
+				43C7D1C8208CFE3200A0A44C /* UIImageView+LoadRemote.swift in Sources */,
 				4377307E208A40F200E18035 /* TrackView.swift in Sources */,
 				43773088208A9FF900E18035 /* Lyric.swift in Sources */,
 				4377307B2089A07B00E18035 /* GCDPerform.swift in Sources */,
 				D3E34EA51D7757CC00EF755D /* ViewController.swift in Sources */,
+				43C7D1C6208CDB9800A0A44C /* SpotifyTrack.swift in Sources */,
 				D3E34EA11D77541D00EF755D /* AppDelegate.swift in Sources */,
 				437D0D9F208592EC00AC7746 /* SearchResaultViewController.swift in Sources */,
 				431C84E3208AC71A00D0D472 /* String+Index.swift in Sources */,
@@ -380,7 +412,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -420,7 +452,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -436,6 +468,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = DQ7323P9K3;
+				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				"HEADER_SEARCH_PATHS[arch=*]" = (
 					"$(inherited)",
 					"\"${PODS_ROOT}/Headers/Public\"",
@@ -444,6 +481,26 @@
 				);
 				INFOPLIST_FILE = Speech/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-framework",
+					"\"GRPCClient\"",
+					"-framework",
+					"\"ProtoRPC\"",
+					"-framework",
+					"\"Protobuf\"",
+					"-framework",
+					"\"RxLibrary\"",
+					"-framework",
+					"\"googleapis\"",
+					"-framework",
+					"\"grpc\"",
+					"-framework",
+					"\"nanopb\"",
+					"-framework",
+					"\"openssl\"",
+					"-ObjC",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.google.lyricsSearch;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Speech/Speech-Bridging-Header.h";
@@ -459,8 +516,33 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = DQ7323P9K3;
+				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = Speech/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-framework",
+					"\"GRPCClient\"",
+					"-framework",
+					"\"ProtoRPC\"",
+					"-framework",
+					"\"Protobuf\"",
+					"-framework",
+					"\"RxLibrary\"",
+					"-framework",
+					"\"googleapis\"",
+					"-framework",
+					"\"grpc\"",
+					"-framework",
+					"\"nanopb\"",
+					"-framework",
+					"\"openssl\"",
+					"-ObjC",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.google.lyricsSearch;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Speech/Speech-Bridging-Header.h";

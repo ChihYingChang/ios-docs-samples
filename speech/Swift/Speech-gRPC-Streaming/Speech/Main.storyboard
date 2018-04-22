@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="brp-mr-SOg">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="brp-mr-SOg">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -22,12 +22,25 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wgH-jh-Nuq">
-                                <rect key="frame" x="158" y="314" width="60" height="60"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Here's the Singer" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SLB-g0-wW4">
+                                <rect key="frame" x="16" y="-96" width="343" height="763"/>
+                                <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="130"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.29999999999999999" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="vtY-SX-V3c">
+                                <rect key="frame" x="-40" y="24" width="455" height="683"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="32"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <button opaque="NO" alpha="0.0" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wgH-jh-Nuq">
+                                <rect key="frame" x="150.5" y="364" width="75" height="75"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="6lu-81-t2K"/>
-                                    <constraint firstAttribute="width" constant="60" id="8b8-bw-kQK"/>
-                                    <constraint firstAttribute="height" constant="60" id="kpU-Gc-YS7"/>
+                                    <constraint firstAttribute="width" constant="75" id="8b8-bw-kQK"/>
+                                    <constraint firstAttribute="height" constant="75" id="kpU-Gc-YS7"/>
                                 </constraints>
                                 <state key="normal" image="StopMark"/>
                                 <variation key="default">
@@ -39,18 +52,12 @@
                                     <action selector="stopAudio:" destination="BYZ-38-t0r" eventType="touchUpInside" id="TWm-My-dhj"/>
                                 </connections>
                             </button>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Let's sing a few lyrics!" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="vtY-SX-V3c">
-                                <rect key="frame" x="20" y="424" width="335" height="173"/>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aJY-83-MIx">
-                                <rect key="frame" x="127.5" y="164" width="120" height="120"/>
+                            <button opaque="NO" alpha="0.0" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aJY-83-MIx">
+                                <rect key="frame" x="112.5" y="184" width="150" height="150"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="120" id="Ob5-s4-nYg"/>
+                                    <constraint firstAttribute="height" constant="150" id="Ob5-s4-nYg"/>
                                     <constraint firstAttribute="height" constant="30" id="QTK-6F-b35"/>
-                                    <constraint firstAttribute="width" constant="120" id="aXK-qO-hb0"/>
+                                    <constraint firstAttribute="width" constant="150" id="aXK-qO-hb0"/>
                                 </constraints>
                                 <state key="normal" image="recodeMark"/>
                                 <variation key="default">
@@ -63,17 +70,21 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="vtY-SX-V3c" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" id="2v4-ap-AoM"/>
-                            <constraint firstAttribute="trailing" secondItem="vtY-SX-V3c" secondAttribute="trailing" constant="20" id="GWa-tB-ifG"/>
-                            <constraint firstItem="vtY-SX-V3c" firstAttribute="top" secondItem="wgH-jh-Nuq" secondAttribute="bottom" constant="50" id="I6f-br-gwb"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="vtY-SX-V3c" secondAttribute="bottom" constant="70" id="O6M-Q5-5Gy"/>
+                            <constraint firstItem="vtY-SX-V3c" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="-40" id="2v4-ap-AoM"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="SLB-g0-wW4" secondAttribute="trailing" id="Dsh-lE-sPh"/>
+                            <constraint firstAttribute="trailing" secondItem="vtY-SX-V3c" secondAttribute="trailing" constant="-40" id="GWa-tB-ifG"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="vtY-SX-V3c" secondAttribute="bottom" constant="-40" id="O6M-Q5-5Gy"/>
                             <constraint firstItem="aJY-83-MIx" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="SCZ-FK-elu"/>
                             <constraint firstItem="wgH-jh-Nuq" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="bjq-My-Edw"/>
+                            <constraint firstItem="vtY-SX-V3c" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" constant="-40" id="dVZ-oq-pKz"/>
                             <constraint firstItem="wgH-jh-Nuq" firstAttribute="centerX" secondItem="aJY-83-MIx" secondAttribute="centerX" id="hZX-d6-ANs"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="SLB-g0-wW4" secondAttribute="bottom" id="hZi-XS-Vkj"/>
                             <constraint firstItem="wgH-jh-Nuq" firstAttribute="top" secondItem="aJY-83-MIx" secondAttribute="bottom" constant="30" id="kIe-ML-fFZ"/>
-                            <constraint firstItem="aJY-83-MIx" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="100" id="qyo-8d-aPV"/>
+                            <constraint firstItem="SLB-g0-wW4" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" constant="-160" id="qYK-14-Ko8"/>
+                            <constraint firstItem="aJY-83-MIx" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="120" id="qyo-8d-aPV"/>
+                            <constraint firstItem="SLB-g0-wW4" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="wZT-Q3-E6k"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
@@ -83,6 +94,8 @@
                     </view>
                     <navigationItem key="navigationItem" id="agl-vY-FRn"/>
                     <connections>
+                        <outlet property="recordButton" destination="aJY-83-MIx" id="G9w-qx-9rn"/>
+                        <outlet property="stopButton" destination="wgH-jh-Nuq" id="tmJ-8j-ZY7"/>
                         <outlet property="textView" destination="vtY-SX-V3c" id="aym-NZ-3gu"/>
                         <outlet property="view" destination="8bC-Xf-vdC" id="I19-bM-Qp4"/>
                     </connections>
@@ -121,6 +134,9 @@
                                     <constraint firstAttribute="width" constant="50" id="pa3-fM-smK"/>
                                 </constraints>
                                 <state key="normal" image="shareMark"/>
+                                <connections>
+                                    <action selector="calloutAction:" destination="LVw-qS-waZ" eventType="touchUpInside" id="vaz-pT-w1v"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hIh-Mn-dOZ">
                                 <rect key="frame" x="16" y="80" width="343" height="29"/>
@@ -129,7 +145,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceHorizontal="YES" pagingEnabled="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1Xy-8H-WGq">
-                                <rect key="frame" x="0.0" y="160" width="375" height="507"/>
+                                <rect key="frame" x="0.0" y="170" width="375" height="497"/>
                                 <connections>
                                     <outlet property="delegate" destination="LVw-qS-waZ" id="mqs-Zw-XMy"/>
                                 </connections>
@@ -147,11 +163,12 @@
                             <constraint firstItem="qqz-Q6-Xbv" firstAttribute="top" secondItem="1Xy-8H-WGq" secondAttribute="bottom" id="h4b-2K-Cy2"/>
                             <constraint firstItem="hIh-Mn-dOZ" firstAttribute="top" secondItem="zaS-OV-9po" secondAttribute="bottom" constant="60" id="wIE-hU-hBH"/>
                             <constraint firstItem="6Hc-Bj-a0s" firstAttribute="top" secondItem="zaS-OV-9po" secondAttribute="bottom" constant="10" id="wlS-UU-kIv"/>
-                            <constraint firstItem="1Xy-8H-WGq" firstAttribute="top" secondItem="ed3-7J-OKV" secondAttribute="top" constant="160" id="xWm-7M-vzu"/>
+                            <constraint firstItem="1Xy-8H-WGq" firstAttribute="top" secondItem="ed3-7J-OKV" secondAttribute="top" constant="170" id="xWm-7M-vzu"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="speechResultLabel" destination="hIh-Mn-dOZ" id="8Nt-Ij-Tcr"/>
+                        <outlet property="spotifyButton" destination="6Hc-Bj-a0s" id="psz-aM-hA6"/>
                         <outlet property="trackScrollView" destination="1Xy-8H-WGq" id="zMT-ni-FHs"/>
                         <outlet property="trackScrollViewTopConstraint" destination="xWm-7M-vzu" id="kQ7-2u-GSa"/>
                     </connections>

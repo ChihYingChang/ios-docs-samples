@@ -10,14 +10,16 @@ import UIKit
 
 class SearchResaultViewController: UIViewController {
     
+    var appDelegate: AppDelegate!
+    
     var result : [String:AnyObject]!
     var tracks : [Track]!
     var speechResult :String!
     var fullSize : CGSize!
-    @IBOutlet weak var trackScrollViewTopConstraint: NSLayoutConstraint!
-    
     var currentIndex = 0
     
+    @IBOutlet weak var trackScrollViewTopConstraint: NSLayoutConstraint!
+    @IBOutlet weak var spotifyButton: UIButton!
     
     @IBOutlet weak var trackScrollView: UIScrollView!
     @IBOutlet weak var speechResultLabel: UILabel!
@@ -25,6 +27,8 @@ class SearchResaultViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         speechResultLabel.text = speechResult!
+        
+        appDelegate = UIApplication.shared.delegate as! AppDelegate
         
         setScrollView()
     }
@@ -49,9 +53,102 @@ class SearchResaultViewController: UIViewController {
             
             setAlbumAndDate(trackView: trackView, index: i)
             getLyric(trackID: tracks[i].trackID)
+            getSpotifyTrackID(trackView: trackView, track: tracks[i])
             trackScrollView.addSubview(trackView)
         }
     }
+    
+    private func getSpotifyTrackID(trackView : TrackView, track : Track) {
+        
+        let albumName = track.albumName
+        let artistName = track.artistName
+        let trackName = track.trackName
+        
+        let q = String.init(format:"artist:%@ track:%@",artistName!,trackName!)
+        
+        /* 1. Set the parameters */
+        let methodParameters = [
+            Constants.SpotifySearchParameterKeys.q : q ,
+            Constants.SpotifySearchParameterKeys.type :  Constants.SpotifySearchParameterValues.track,
+            Constants.SpotifySearchParameterKeys.market : Constants.SpotifySearchParameterValues.USMarket,
+            Constants.SpotifySearchParameterKeys.limit : Constants.SpotifySearchParameterValues.limit
+            ] as [String : AnyObject]
+        
+        // create session and request
+        let session = URLSession.shared
+        var request = URLRequest(url: SpotifyURLFromParameters(methodParameters))
+        request.httpMethod = "GET"
+        request.addValue(Constants.SpotifyHeaderValues.Accept, forHTTPHeaderField: Constants.SpotifyHeaderKeys.Accept)
+        request.addValue(Constants.SpotifyHeaderValues.ContentType, forHTTPHeaderField: Constants.SpotifyHeaderKeys.ContentType)
+        request.addValue(Constants.SpotifyHeaderValues.Authorization, forHTTPHeaderField: Constants.SpotifyHeaderKeys.Authorization)
+        
+        print("request \(request)")
+        
+        // Make the request
+        let task = session.dataTask(with: request) { (data, response, error) in
+            
+            guard (error == nil) else {
+                print("There was an error with the request: \(error!)")
+                return
+            }
+            
+            guard let statusCode = (response as? HTTPURLResponse)?.statusCode, statusCode >= 200 && statusCode <= 299 else {
+                print("The request returned a status code other than 2xx!")
+                return
+            }
+            
+            guard let data = data else {
+                print("No data was returned by the request!")
+                return
+            }
+            
+            
+            // parse the data
+            let parsedResults: [String:AnyObject]!
+            do {
+                parsedResults = try JSONSerialization.jsonObject(with: data, options: .allowFragments) as! [String:AnyObject]
+            } catch {
+                return
+            }
+            
+            print(parsedResults)
+            
+            guard let tracks = parsedResults["tracks"] as? [String : AnyObject] else {
+                print("There is no tracks!")
+                return
+            }
+            
+            guard let items = tracks["items"] as? [[String : AnyObject]] else {
+                print("There is no items!")
+                return
+            }
+            
+            guard items.count > 0 else {
+                print("There is no the item!")
+                return
+            }
+            
+            // Store Value
+            
+            let spotifyTrack = SpotifyTrack.trackFromResult(items[0])
+            
+            trackView.spotifyTrackID = spotifyTrack.uri
+            
+            if let url = spotifyTrack.image {
+                let imageURL = URL(string: url)
+                let imageData:NSData = NSData(contentsOf: imageURL!)!
+                
+                // use Value
+                
+                performUIUpdatesOnMainThread {
+                    trackView.coverImage.image = UIImage(data: imageData as Data)
+                }
+            }
+            
+       }
+    
+        task.resume()
+}
 
     private func getLyric(trackID : Int) {
         
@@ -144,6 +241,32 @@ class SearchResaultViewController: UIViewController {
          dismiss(animated: true, completion: nil)
     }
     
+    @IBAction func calloutAction(_ sender: UIButton) {
+        
+            performUIUpdatesOnMainThread {
+                if let view = self.trackScrollView.viewWithTag(self.page()) as? TrackView{
+                    
+                    if let spotifyTrackID =  view.spotifyTrackID {
+                        self.appDelegate.callSpotify(uri: spotifyTrackID)
+                    } else {
+                        
+                        
+                        self.displayOKAlert(title: "There is no audio track!" ,message: "")
+//                        print("There is no audio track! : \(view.trackName.text)")
+                        return
+                    }
+                    
+                }
+            }
+
+    }
+    
+    private func displayOKAlert(title: String, message: String) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        present(alert, animated: true)
+    }
+    
     private func setAlbumAndDate(trackView : TrackView , index :Int) {
         
         
@@ -163,9 +286,18 @@ class SearchResaultViewController: UIViewController {
         }
     }
     
+    private func page()-> Int{
+        return currentIndex + 1
+    }
+    
     
 }
 
 extension SearchResaultViewController : UIScrollViewDelegate {
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        
+        currentIndex = Int(scrollView.contentOffset.x / fullSize.width)
+    }
     
 }

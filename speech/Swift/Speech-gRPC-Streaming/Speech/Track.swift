@@ -43,7 +43,7 @@ struct Track {
         for result in results {
             tracks.append(Track(dictionary: result["track"] as! [String : AnyObject]))
         }
-        print("tracks : \(tracks)")
+        
         return tracks
     }
 }

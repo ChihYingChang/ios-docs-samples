@@ -21,17 +21,31 @@ let SAMPLE_RATE = 16000
 
 class ViewController : UIViewController, AudioControllerDelegate {
   @IBOutlet weak var textView: UITextView!
-  var audioData: NSMutableData!
+    @IBOutlet weak var stopButton: UIButton!
+    @IBOutlet weak var recordButton: UIButton!
+    var audioData: NSMutableData!
   var speechResult: String?
 
   override func viewDidLoad() {
     super.viewDidLoad()
     AudioController.sharedInstance.delegate = self
+    navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
+    self.navigationController?.navigationBar.shadowImage = UIImage()
+    navigationController?.navigationBar.isTranslucent = true
   }
     
     override func viewWillAppear(_ animated: Bool) {
-        textView.text = "Let's sing!"
+        textView.text = ""
         speechResult = nil
+        UIView.animate(withDuration: 2.0, animations: {
+            self.stopButton.alpha = 1.0
+            self.recordButton.alpha = 1.0
+        })
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        stopButton.alpha = 0.0
+        recordButton.alpha = 0.0
     }
 
   @IBAction func recordAudio(_ sender: NSObject) {
