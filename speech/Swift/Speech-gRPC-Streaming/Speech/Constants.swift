@@ -58,7 +58,7 @@ struct Constants {
         static let STrackRating = "desc"
         static let QuorumFactor = 0.5
         static let Page = 1
-        static let PageSize = 10
+        static let PageSize = 5
         static let APIKey = "2d31655277c161c72f42006282202cb3"
     }
     
@@ -130,7 +130,7 @@ struct Constants {
     struct SpotifyHeaderValues {
         static let Accept = "application/json"
         static let ContentType = "application/json"
-        static let Authorization = "Bearer BQBo_LKsJx0p39u3KVoOpxyFuk9sRRKJ5P0JuwhEPA6JRlKkeiOWmM3NnGbC3DMeafjExkmh11wc_klXjGAN53Ul0bm6m1vV3cYkZYoX2hZ3qGD-mqfhBucFRDDU0rhukH_rziKZdpjD7EjuOqsDQuNILBqDEu8"
+        static let Authorization = "Bearer BQDT5ZE0tYtpZJxEL0YPkj4ZsuuEQq7A2y8zjd9JoOAsBjv9_DvCqtPxbSUNkKh2aQsWp53A-ZiPzikpMxdcVwGk0GZl_y-yOqj3275l2qwJeT9i-p4cUUrY1iF-TnnbMqT1A7F9_2TwEhfEUjM_60YPDTSomUs"
     }
     
     struct SpotifySearchParameterKeys {
