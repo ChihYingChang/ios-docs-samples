@@ -120,7 +120,7 @@ class ViewController : UIViewController, AudioControllerDelegate {
             Constants.MusixmatchParameterKeys.Callback : Constants.MusixmatchParameterValue.Callback,
             Constants.MusixmatchParameterKeys.QLyrics : speechResult!,
 //            Constants.MusixmatchParameterKeys.SArtistRating : Constants.MusixmatchParameterValue.SArtistRating,
-//            Constants.MusixmatchParameterKeys.STrackRating : Constants.MusixmatchParameterValue.STrackRating,
+            Constants.MusixmatchParameterKeys.STrackRating : Constants.MusixmatchParameterValue.STrackRating,
             Constants.MusixmatchParameterKeys.FHasLyrics : Constants.MusixmatchParameterValue.FHasLyrics,
             Constants.MusixmatchParameterKeys.QuorumFactor : Constants.MusixmatchParameterValue.QuorumFactor,
             Constants.MusixmatchParameterKeys.PageSize : Constants.MusixmatchParameterValue.PageSize,

@@ -138,36 +138,40 @@
                                     <action selector="calloutAction:" destination="LVw-qS-waZ" eventType="touchUpInside" id="vaz-pT-w1v"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hIh-Mn-dOZ">
-                                <rect key="frame" x="16" y="80" width="343" height="29"/>
-                                <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="24"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceHorizontal="YES" pagingEnabled="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1Xy-8H-WGq">
                                 <rect key="frame" x="0.0" y="170" width="375" height="497"/>
                                 <connections>
                                     <outlet property="delegate" destination="LVw-qS-waZ" id="mqs-Zw-XMy"/>
                                 </connections>
                             </scrollView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="m4q-Ov-ygH">
+                                <rect key="frame" x="26" y="80" width="333" height="90"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="24"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="done"/>
+                                <connections>
+                                    <outlet property="delegate" destination="LVw-qS-waZ" id="fDn-iZ-uKw"/>
+                                </connections>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="6Hc-Bj-a0s" secondAttribute="trailing" constant="15" id="2xg-3e-lFk"/>
                             <constraint firstAttribute="trailing" secondItem="1Xy-8H-WGq" secondAttribute="trailing" id="3Nu-pe-buS"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="hIh-Mn-dOZ" secondAttribute="trailing" id="FbZ-gY-TBF"/>
-                            <constraint firstItem="hIh-Mn-dOZ" firstAttribute="leading" secondItem="ed3-7J-OKV" secondAttribute="leadingMargin" id="Fzi-Ti-hOW"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="m4q-Ov-ygH" secondAttribute="trailing" id="KFP-O7-DyG"/>
                             <constraint firstItem="CRF-ti-8Z4" firstAttribute="top" secondItem="zaS-OV-9po" secondAttribute="bottom" constant="10" id="PQl-Y1-gkh"/>
+                            <constraint firstItem="m4q-Ov-ygH" firstAttribute="top" secondItem="zaS-OV-9po" secondAttribute="bottom" constant="60" id="Q1g-FN-k0m"/>
                             <constraint firstItem="1Xy-8H-WGq" firstAttribute="leading" secondItem="ed3-7J-OKV" secondAttribute="leading" id="TXs-Be-yMg"/>
                             <constraint firstItem="CRF-ti-8Z4" firstAttribute="leading" secondItem="ed3-7J-OKV" secondAttribute="leading" constant="15" id="ZV3-4g-3cv"/>
                             <constraint firstItem="qqz-Q6-Xbv" firstAttribute="top" secondItem="1Xy-8H-WGq" secondAttribute="bottom" id="h4b-2K-Cy2"/>
-                            <constraint firstItem="hIh-Mn-dOZ" firstAttribute="top" secondItem="zaS-OV-9po" secondAttribute="bottom" constant="60" id="wIE-hU-hBH"/>
+                            <constraint firstItem="m4q-Ov-ygH" firstAttribute="leading" secondItem="ed3-7J-OKV" secondAttribute="leadingMargin" constant="10" id="ogF-8w-qvv"/>
+                            <constraint firstItem="1Xy-8H-WGq" firstAttribute="top" secondItem="m4q-Ov-ygH" secondAttribute="bottom" id="ogs-F4-veU"/>
                             <constraint firstItem="6Hc-Bj-a0s" firstAttribute="top" secondItem="zaS-OV-9po" secondAttribute="bottom" constant="10" id="wlS-UU-kIv"/>
                             <constraint firstItem="1Xy-8H-WGq" firstAttribute="top" secondItem="ed3-7J-OKV" secondAttribute="top" constant="170" id="xWm-7M-vzu"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="speechResultLabel" destination="hIh-Mn-dOZ" id="8Nt-Ij-Tcr"/>
+                        <outlet property="resultTextField" destination="m4q-Ov-ygH" id="qha-RO-Gdc"/>
                         <outlet property="spotifyButton" destination="6Hc-Bj-a0s" id="psz-aM-hA6"/>
                         <outlet property="trackScrollView" destination="1Xy-8H-WGq" id="zMT-ni-FHs"/>
                         <outlet property="trackScrollViewTopConstraint" destination="xWm-7M-vzu" id="kQ7-2u-GSa"/>

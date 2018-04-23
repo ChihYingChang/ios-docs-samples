@@ -22,11 +22,12 @@ class SearchResaultViewController: UIViewController {
     @IBOutlet weak var spotifyButton: UIButton!
     
     @IBOutlet weak var trackScrollView: UIScrollView!
-    @IBOutlet weak var speechResultLabel: UILabel!
+//    @IBOutlet weak var speechResultLabel: UILabel!
+    @IBOutlet weak var resultTextField: UITextView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        speechResultLabel.text = speechResult!
+        resultTextField.text = speechResult!
         
         appDelegate = UIApplication.shared.delegate as! AppDelegate
         
@@ -34,6 +35,11 @@ class SearchResaultViewController: UIViewController {
     }
 
     private func setScrollView() {
+        
+        let subViews = trackScrollView.subviews
+        for subview in subViews{
+            subview.removeFromSuperview()
+        }
         
         fullSize = UIScreen.main.bounds.size
         trackScrollView.contentSize = CGSize(width: fullSize.width * CGFloat(tracks.count), height: fullSize.height - trackScrollViewTopConstraint.constant)
@@ -60,7 +66,7 @@ class SearchResaultViewController: UIViewController {
     
     private func getSpotifyTrackID(trackView : TrackView, track : Track) {
         
-        let albumName = track.albumName
+//        let albumName = track.albumName
         let artistName = track.artistName
         let trackName = track.trackName
         
@@ -290,6 +296,92 @@ class SearchResaultViewController: UIViewController {
         return currentIndex + 1
     }
     
+    func callMusicMatch(newText : String) {
+        
+        //        print(" speechResult : \(speechResult!)")
+        
+        /* 1. Set the parameters */
+        let methodParameters = [
+            Constants.MusixmatchParameterKeys.Format : Constants.MusixmatchParameterValue.Format,
+            Constants.MusixmatchParameterKeys.Callback : Constants.MusixmatchParameterValue.Callback,
+            Constants.MusixmatchParameterKeys.QLyrics : newText,
+            //            Constants.MusixmatchParameterKeys.SArtistRating : Constants.MusixmatchParameterValue.SArtistRating,
+            Constants.MusixmatchParameterKeys.STrackRating : Constants.MusixmatchParameterValue.STrackRating,
+            Constants.MusixmatchParameterKeys.FHasLyrics : Constants.MusixmatchParameterValue.FHasLyrics,
+            Constants.MusixmatchParameterKeys.QuorumFactor : Constants.MusixmatchParameterValue.QuorumFactor,
+            Constants.MusixmatchParameterKeys.PageSize : Constants.MusixmatchParameterValue.PageSize,
+            Constants.MusixmatchParameterKeys.Page : Constants.MusixmatchParameterValue.Page,
+            Constants.MusixmatchParameterKeys.APIKey : Constants.MusixmatchParameterValue.APIKey
+            ] as [String : AnyObject]
+        
+        /* 2/3. Build the URL, Configure the request */
+        let session = URLSession.shared
+        let request = URLRequest(url: MusixMatchURLFromParameters(methodParameters))
+        
+        //        print("request : \(request)")
+        
+        /* 4. Make the request */
+        let task = session.dataTask(with: request) { (data, response, error) in
+            
+            /* GUARD: Was there an error? */
+            guard (error == nil) else {
+                print("There was an error with your request: \(String(describing: error))")
+                return
+            }
+            
+            /* GUARD: Did we get a successful 2XX response? */
+            guard let statusCode = (response as? HTTPURLResponse)?.statusCode, statusCode >= 200 && statusCode <= 299 else {
+                print("Your request returned a status code other than 2xx!")
+                return
+            }
+            
+            /* GUARD: Was there any data returned? */
+            guard let data = data else {
+                print("No data was returned by the request!")
+                return
+            }
+            
+            /* 5. Parse the data */
+            let parsedResult: [String:AnyObject]!
+            do {
+                parsedResult = try JSONSerialization.jsonObject(with: data, options: .allowFragments) as! [String:AnyObject]
+            } catch {
+                print("Could not parse the data as JSON: '\(data)'")
+                return
+            }
+            
+            guard let message = parsedResult["message"] as? [String : AnyObject] else {
+                print("There is no message!")
+                return
+            }
+            
+            guard let body = message["body"] as? [String : AnyObject] else {
+                print("There is no body!")
+                return
+            }
+            
+            guard let trackList = body["track_list"] as? [[String : AnyObject]] else {
+                print("There is no track_list!")
+                return
+            }
+            
+            
+            /* 6. Use the data! */
+            
+            // update UI
+            performUIUpdatesOnMainThread {
+                
+                self.tracks = Track.tracksFromResult(trackList)
+                self.setScrollView()
+
+            }
+            
+        }
+        
+        /* 7. Start the request */
+        task.resume()
+    }
+    
     
 }
 
@@ -299,5 +391,29 @@ extension SearchResaultViewController : UIScrollViewDelegate {
         
         currentIndex = Int(scrollView.contentOffset.x / fullSize.width)
     }
+    
+}
+
+extension SearchResaultViewController : UITextViewDelegate {
+    
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        
+        if text == "\n" {
+            textView.resignFirstResponder()
+            print(textView.text + text)
+            let newText = textView.text
+            if (newText?.count)! > 0 {
+                speechResult = newText
+                callMusicMatch(newText: newText!)
+            } else {
+                dismiss(animated: true, completion: nil)
+            }
+            
+        }
+        
+        return true
+    }
+    
+    
     
 }

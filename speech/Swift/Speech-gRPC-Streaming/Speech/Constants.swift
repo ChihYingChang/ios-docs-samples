@@ -130,7 +130,7 @@ struct Constants {
     struct SpotifyHeaderValues {
         static let Accept = "application/json"
         static let ContentType = "application/json"
-        static let Authorization = "Bearer BQAGkpYUxo3bSkA6TLFfkHI8M8kprfTJcy5SIAVXDO366d9NvPcJIlZcvhKR8ym_fNss-4GUJozNgUJ6SVJV_aMRgg6Zen1FE_m3zk6s6KaxjuSqNcrvn-Wn0wFmWnu34S-IIRuY4SH6Pi94EtKnps5eXcfSUNU"
+        static let Authorization = "Bearer BQBo_LKsJx0p39u3KVoOpxyFuk9sRRKJ5P0JuwhEPA6JRlKkeiOWmM3NnGbC3DMeafjExkmh11wc_klXjGAN53Ul0bm6m1vV3cYkZYoX2hZ3qGD-mqfhBucFRDDU0rhukH_rziKZdpjD7EjuOqsDQuNILBqDEu8"
     }
     
     struct SpotifySearchParameterKeys {
