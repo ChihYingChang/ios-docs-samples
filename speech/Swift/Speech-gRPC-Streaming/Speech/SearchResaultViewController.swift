@@ -25,6 +25,8 @@ class SearchResaultViewController: UIViewController {
 //    @IBOutlet weak var speechResultLabel: UILabel!
     @IBOutlet weak var resultTextField: UITextView!
     
+    @IBOutlet weak var pageNum: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         resultTextField.text = speechResult!
@@ -35,11 +37,6 @@ class SearchResaultViewController: UIViewController {
     }
 
     private func setScrollView() {
-        
-        let subViews = trackScrollView.subviews
-        for subview in subViews{
-            subview.removeFromSuperview()
-        }
         
         fullSize = UIScreen.main.bounds.size
         trackScrollView.contentSize = CGSize(width: fullSize.width * CGFloat(tracks.count), height: fullSize.height - trackScrollViewTopConstraint.constant)
@@ -61,6 +58,13 @@ class SearchResaultViewController: UIViewController {
             getLyric(trackID: tracks[i].trackID)
             getSpotifyTrackID(trackView: trackView, track: tracks[i])
             trackScrollView.addSubview(trackView)
+        }
+    }
+    
+     func removeTrackViews() {
+        let subViews = trackScrollView.subviews
+        for subview in subViews{
+            subview.removeFromSuperview()
         }
     }
     
@@ -292,7 +296,7 @@ class SearchResaultViewController: UIViewController {
         }
     }
     
-    private func page()-> Int{
+    func page()-> Int{
         return currentIndex + 1
     }
     
@@ -390,6 +394,7 @@ extension SearchResaultViewController : UIScrollViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         
         currentIndex = Int(scrollView.contentOffset.x / fullSize.width)
+        pageNum.text = "\(page())"
     }
     
 }
@@ -404,6 +409,7 @@ extension SearchResaultViewController : UITextViewDelegate {
             let newText = textView.text
             if (newText?.count)! > 0 {
                 speechResult = newText
+                removeTrackViews()
                 callMusicMatch(newText: newText!)
             } else {
                 dismiss(animated: true, completion: nil)

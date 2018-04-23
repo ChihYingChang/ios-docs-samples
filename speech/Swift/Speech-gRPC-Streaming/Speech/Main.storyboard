@@ -116,6 +116,16 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FWI-2g-RyJ">
+                                <rect key="frame" x="16" y="642" width="343" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="20" id="iPx-SQ-eon"/>
+                                    <constraint firstAttribute="height" constant="20" id="nRq-im-Gtd"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CRF-ti-8Z4">
                                 <rect key="frame" x="15" y="30" width="50" height="50"/>
                                 <constraints>
@@ -158,7 +168,9 @@
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="6Hc-Bj-a0s" secondAttribute="trailing" constant="15" id="2xg-3e-lFk"/>
                             <constraint firstAttribute="trailing" secondItem="1Xy-8H-WGq" secondAttribute="trailing" id="3Nu-pe-buS"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="FWI-2g-RyJ" secondAttribute="trailing" id="Bx1-Mt-GLH"/>
                             <constraint firstAttribute="trailingMargin" secondItem="m4q-Ov-ygH" secondAttribute="trailing" id="KFP-O7-DyG"/>
+                            <constraint firstItem="FWI-2g-RyJ" firstAttribute="leading" secondItem="ed3-7J-OKV" secondAttribute="leadingMargin" id="Mzc-yZ-1ng"/>
                             <constraint firstItem="CRF-ti-8Z4" firstAttribute="top" secondItem="zaS-OV-9po" secondAttribute="bottom" constant="10" id="PQl-Y1-gkh"/>
                             <constraint firstItem="m4q-Ov-ygH" firstAttribute="top" secondItem="zaS-OV-9po" secondAttribute="bottom" constant="60" id="Q1g-FN-k0m"/>
                             <constraint firstItem="1Xy-8H-WGq" firstAttribute="leading" secondItem="ed3-7J-OKV" secondAttribute="leading" id="TXs-Be-yMg"/>
@@ -166,11 +178,13 @@
                             <constraint firstItem="qqz-Q6-Xbv" firstAttribute="top" secondItem="1Xy-8H-WGq" secondAttribute="bottom" id="h4b-2K-Cy2"/>
                             <constraint firstItem="m4q-Ov-ygH" firstAttribute="leading" secondItem="ed3-7J-OKV" secondAttribute="leadingMargin" constant="10" id="ogF-8w-qvv"/>
                             <constraint firstItem="1Xy-8H-WGq" firstAttribute="top" secondItem="m4q-Ov-ygH" secondAttribute="bottom" id="ogs-F4-veU"/>
+                            <constraint firstItem="qqz-Q6-Xbv" firstAttribute="top" secondItem="FWI-2g-RyJ" secondAttribute="bottom" constant="5" id="rLd-fr-u8Z"/>
                             <constraint firstItem="6Hc-Bj-a0s" firstAttribute="top" secondItem="zaS-OV-9po" secondAttribute="bottom" constant="10" id="wlS-UU-kIv"/>
                             <constraint firstItem="1Xy-8H-WGq" firstAttribute="top" secondItem="ed3-7J-OKV" secondAttribute="top" constant="170" id="xWm-7M-vzu"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="pageNum" destination="FWI-2g-RyJ" id="WMv-Ds-ihL"/>
                         <outlet property="resultTextField" destination="m4q-Ov-ygH" id="qha-RO-Gdc"/>
                         <outlet property="spotifyButton" destination="6Hc-Bj-a0s" id="psz-aM-hA6"/>
                         <outlet property="trackScrollView" destination="1Xy-8H-WGq" id="zMT-ni-FHs"/>
