@@ -379,7 +379,7 @@ class SearchResaultViewController: UIViewController {
             performUIUpdatesOnMainThread {
                 
                 self.tracks = Track.tracksFromResult(trackList)
-                self.setScrollView(currentIndex: self.currentIndex)
+                self.setScrollView(currentIndex: 0)
 
             }
             
@@ -492,7 +492,7 @@ extension SearchResaultViewController : UIScrollViewDelegate {
         
         currentIndex = Int(scrollView.contentOffset.x / fullSize.width)
         pageNum.text = "\(page())"
-        if page() == tracks.count - 1 {
+        if page() == tracks.count - 3 {
             collectionPage = collectionPage + 1
             callMusicMatchWithCollectionPage(collectionPage: collectionPage)
         }
